@@ -1,0 +1,46 @@
+body {
+	background-color: #0066FF
+}
+
+#container {
+	float: center;
+	margin: 0 auto; /* Center */
+	margin-top: 100px;
+	width: 600px;
+	height: 400px;
+}
+
+#logo {
+	float: left;
+	height: 396 px;
+	width: 336 px;
+	/*border: solid 2px;*/ /* Fel höjd med border, finns border i bilden till labmanual, hur? Skriva över bild? */
+}
+
+#login {
+	background-color: #FFFAFA;
+	float: right;
+	width: 246px;
+	height: 86px;
+	position: relative; /* Relative to container */
+	background-color: white;
+	border: solid 2px;
+}
+
+#signup {
+	background-color: #FFFAFA;
+    margin-top: 10px;
+	float: right;
+	width: 246px;
+	height: 296px;
+	position: relative;
+	background-color: white;
+	border: solid 2px;
+}
+
+
+input {
+	border-radius: 5px; /* Rounded edges */
+	margin: 0;
+}
+
