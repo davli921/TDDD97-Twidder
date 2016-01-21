@@ -13,7 +13,34 @@ window.onload = function() {
 	window.alert("Hello TDDD97!");
 };
 
-// Password strength meter: http://stackoverflow.com/questions/948172/password-strength-meter
+var signup = function() {
+	if (validateSignup) {
+		var signupForm = document.forms['signupForm'];
+		var data = {
+			email:  signupForm['signupUsername'].value,
+			password: signupForm['signupPassword1'].value,
+			firstname: signupForm['firstname'].value,
+			familyname: signupForm['familyname'].value,
+			gender: signupForm['gender'].value,
+			city: signupForm['city'].value,
+			country: signupForm['country'].value,
+		}
+		
+		if (serverstub.getUserDataByEmail(token,data['email'])['email'] != data['email']) { // Token??, Works?
+			var signupUser = serverstub.signUp(data);
+			if(!signupUser.success){ 
+				displayError(signupUser.message)
+			} else {
+				serverstub.signIn(data.email, data.password);
+				window.alert(signupUser.message) // COMMENT OUT LATER
+				displayView('profileView');
+			}
+		} else {
+			displayError('This email is already signed up')
+		}
+	}
+};
+
 var validateSignup = function() {
 	var signupForm = document.forms['signupForm'];
 	var password1 = signupForm['signupPassword1']; 
@@ -21,7 +48,7 @@ var validateSignup = function() {
 	var email = signupForm['signupUsername'];
 	var validateMail = new DisposableEmails(); //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
 	
-	var  signupData = {
+	var data = {
 		email:  signupForm['signupUsername'].value,
 		password: signupForm['signupPassword1'].value,
 		firstname: signupForm['firstname'].value,
@@ -55,7 +82,7 @@ var validateSignup = function() {
 		return false;
 	}
 	
-	for (item in signupData) { // Check so that fields aren't empty. "Require" doesn't work in IE before IE7
+	for (item in data) { // Check so that fields aren't empty. "Require" doesn't work in IE before IE7
 			if (item == null || item == "") {
 				displayError('All fields have to be filled');
 				return false;
