@@ -4,7 +4,9 @@
 <head>
 	<title>Welcomepage</title>
 	<link type="text/css" rel="stylesheet" href="welcome.css" />
+</head>
 
+<body>
 
 <div id="container">
 	<div id="logo">
@@ -12,47 +14,62 @@
 	</div>
 
 	<div id="login">
-		<form>
+		<form id="loginform">
+			<div class="form-group"> <!-- Wrap label with input -->
 				<label for="username">Email</label> 
-					<input type="text" name="username" id="username" required><br>
+				<input type="email" name="username" id="username" required><br>
+			</div>
+			<div class="form-group">
 				<label for="password">Password</label>
-					<input type="password" name="password" id="password" required>
-				<input type="submit" name="login">
+				<input type="password" name="password" id="password" required>
+			</div>
+				<input type="submit" name="login" value="login" class="submitbutton">
 		</form>
 	</div>
 
 	<div id="signup">
-		<h2> Sign up here </h2>
-		<form>
-			<label for="firstname">First name</label>
+		<h2 id="signuphead"> Sign up here </h2>
+		<form id="signupform" >
+			<div class="form-group">
+				<label for="firstname">First name</label>
 				<input type="text" name="firstname" id="firstname" required><br>
-			<label for=""familyname">Family name</label>
+			</div>
+			<div class="form-group">	
+				<label for=""familyname">Family name</label>
 				<input type="text" name="familyname" id="familyname"><br>
+			</div>
+			<div class"form-group">
 			<label for="gender">Gender</label>
-				<select name="gender" id="gender" required> 
-						<option value="">None</option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select><br>
-			<label for="city">City</label>
-				<input type="text" name="city" id="city"><br>
-			<label for="country">Country</label>
+					<select name="gender" id="gender" required> 
+							<option value="">None</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select><br>
+			</div>
+			<div class="form-group">
+					<label for="city">City</label>
+					<input type="text" name="city" id="city"><br>
+			</div>
+			<div class="form-group">
+				<label for="country">Country</label>
 				<input type="text" name="country" id="country"><br>
-			<label for="username">Email</label>
-				<input type="text" name="username" id="username" required><br>
-			<label for="password">Password</label>
+			</div>
+			<div class="form-group">
+				<label for="username">Email</label>
+				<input type="email" name="username" id="username" required><br>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
 				<input type="password" name="password" id="password" required><br>
-			<label for="reppassword">Repeat PSW</label>
+			</div>
+			<div class="form-group">
+				<label for="reppassword">Repeat PSW</label>
 				<input type="password" name="password" id="reppassword" required><br>
-			<input type="submit" name="SignUp">
+			</div>
+				<input type="submit" name="SignUp" value="Sign up" class="submitbutton">
 		</form>
 	</div>
 </div>
-
-
-</head>
-
-<body>
 
 </body>
 

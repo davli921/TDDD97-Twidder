@@ -1,0 +1,102 @@
+body {
+	background-color: #0066FF
+}
+
+#container {
+	float: center;
+	margin: 0 auto; /* Center */
+	margin-top: 100px;
+	width: 600px;
+	height: 400px;
+}
+
+#logo {
+	float: left;
+	height: 396 px;
+	width: 336 px;
+	/*border: solid 2px;*/ /* Fel höjd med border, finns border i bilden till labmanual, hur? Skriva över bild? */
+}
+
+#login {
+	background-color: #FFFAFA;
+	float: right;
+	width: 246px;
+	height: 86px;
+	position: relative; /* Relative to container */
+	background-color: white;
+	border: solid 2px;
+}
+
+#signup {
+	background-color: #FFFAFA;
+    margin-top: 10px;
+	float: right;
+	width: 246px;
+	height: 296px;
+	position: relative;
+	background-color: white;
+	border: solid 2px;
+}
+
+
+input:not([type=submit]):not([type=file]), select { /* CSS for all input except Submit, File, and for select */
+	/* Box model for form elements */
+	-webkit-box-sizing: border-box; /* Same size with box-sizing, one for chrome, ff, and other */
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 60%; /* 70% width of container where input and select is hold */
+			position: relative;
+			float: right;
+			margin-right: 0;
+			border-radius: 2px;
+			/* https://css-tricks.com/styling-texty-inputs-only/ Style text, Not used */		
+}
+
+/*
+input[type=submit], input[type=file] {
+	-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 25%;
+			position: relative;
+			float: right;
+			margin-right: 0;
+			margin-bottom: 0;
+			border-radius: 2px;
+} */
+
+input.submitbutton { /* How Place in bottom right?? */
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}
+
+
+label {
+	text-align: right; /* Why? */
+	clear: both;
+	float: left;
+	margin-right: 5px;	
+}
+
+#signuphead {
+	width: 140px;
+	position: relative;
+	float: center;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+#signupform {
+	float: top;
+	/* position: relative; */ /* Problems with placing submitbutton bottom right if relative */
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#loginform {
+	float: top;
+	/*position: relative; */
+	margin: 0 auto;
+	margin-top: 10px;
+} 
