@@ -1,9 +1,7 @@
 body {
 	background-color: #0066FF
 }
-
 #container {
-	float: center;
 	margin: 0 auto; /* Center */
 	margin-top: 100px;
 	width: 600px;
@@ -12,11 +10,10 @@ body {
 
 #logo {
 	float: left;
-	height: 396 px;
-	width: 336 px;
+	height: 396px;
+	width: 336px;
 	/*border: solid 2px;*/ /* Fel höjd med border, finns border i bilden till labmanual, hur? Skriva över bild? */
 }
-
 #login {
 	background-color: #FFFAFA;
 	float: right;
@@ -37,8 +34,6 @@ body {
 	background-color: white;
 	border: solid 2px;
 }
-
-
 input:not([type=submit]):not([type=file]), select { /* CSS for all input except Submit, File, and for select */
 	/* Box model for form elements */
 	-webkit-box-sizing: border-box; /* Same size with box-sizing, one for chrome, ff, and other */
@@ -82,7 +77,6 @@ label {
 #signuphead {
 	width: 140px;
 	position: relative;
-	float: center;
 	margin: 0 auto;
 	margin-top: 10px;
 }

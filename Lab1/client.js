@@ -1,67 +1,66 @@
+package ;
+extern class DisposableEmails {
+	public function new():Void;
+	public function isValid(string):Bool;
+}
+	
 displayView = function() {
 	//the code required to display a view
-
 };
-
 window.onload = function() {
 	//code that is executed as the page is loaded
 	//you shall put your own custom code here
 	window.alert("Hello TDDD97!");
 };
 
-// Check disposable Email: 
-// https://github.com/sureshdsk/temporary-email-address-validator-node-js
-// http://www.email-validator.net/block-fake-disposable-email-addresses.html
-
-
-// Password strenght meter: http://stackoverflow.com/questions/948172/password-strength-meter
-function CheckPassword() // User can not submit without same password
-{
-	var password1 = document.getElementById('password1'); 
-	var password2 = document.getElementById('password2');
-	var email = document.getElementById('username');
+// Password strength meter: http://stackoverflow.com/questions/948172/password-strength-meter
+var validateSignup = function() {
+	var signupForm = document.forms['signupForm'];
+	var password1 = signupForm['signupPassword1']; 
+	var password2 = signupForm['signupPassword2'];
+	var email = signupForm['signupUsername'];
+	var validateMail = new DisposableEmails(); //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
 	
-	var checkPasswordMatch = function() {
-		if (passw1.value != passw2.value) {
-		password1.setCustomValidity('Passwords must match.');
-		} else {
-			password1.setCustomValidity('');
+	var  signupData = {
+		email:  signupForm['signupUsername'].value,
+		password: signupForm['signupPassword1'].value,
+		firstname: signupForm['firstname'].value,
+		familyname: signupForm['familyname'].value,
+		gender: signupForm['gender'].value,
+		city: signupForm['city'].value,
+		country: signupForm['country'].value,
+    }
+	
+	// Check email is valid, have @ etc
+	
+	
+	if (password1.value.length < 6) {
+		//password1.setCustomValidity('Password must be minimum 6 characters'); // Should use instead?
+		displayError('Password is too short');
+		return false;
 		}
-	};
 	
-	var checkPasswordLength = function () {
-		if (password1.value.length < 6) {
-			password1.setCustomValidity('Password must be minimum 6 characters');
-		} else {
-			password1.setCustomValidity('');
-		}
-	};
+	if (password1.value != password2.value) {
+		displayError('Passwords must match.');
+		return false;
+	}
+		
+	if (password1.value == email.value) {
+		displayError('Password can not be equal to email');
+		return false;
+	}
 	
-	var checkPasswordNotEmail = function() {
-		if (password1.value == email.value) {
-			password1.setCustomValidity('Password can not be equal to email');
-		} else {
-			password1.setCustomValidity('');
-		}
-	};
+	if (validateMail.isValid(email.value)) {
+		displayError("A disposable email is not valid");
+		return false;
+	}
 	
-	
-	
-	password1.addEventListener('change', checkPasswordMatch, false)
-	password2.addEventListener('change', checkPasswordMatch, false)
-	
-	var form = document.getElementById('signupform');
-	form.addEventListener('submit', function(event) {
-		checkPasswordMatch();
-		//checkPasswordNotEmail();
-		//checkPasswordLength(); ?? // Switch order? First check length etc then match? // Can have more than one func here?
-		if (!this.checkValidity()) { 
-			event.preventDefault();
-			// ERROR MESSAGE !
-			alert("Error: Password must match") // How add correct error, match, length? Error message in functions above?
-			password1.focus();
-		}
-	}, false);
-	
-	
+	for (item in signupData) { // Check so that fields aren't empty. "Require" doesn't work in IE before IE7
+			if (item == null || item == "") {
+				displayError('All fields have to be filled');
+				return false;
+			}
+	}	
+	return true;
 };
+

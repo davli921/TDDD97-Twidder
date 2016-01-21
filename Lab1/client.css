@@ -3,7 +3,6 @@ body {
 }
 
 #container {
-	float: center;
 	margin: 0 auto; /* Center */
 	margin-top: 100px;
 	width: 600px;
@@ -12,8 +11,8 @@ body {
 
 #logo {
 	float: left;
-	height: 396 px;
-	width: 336 px;
+	height: 396px;
+	width: 336px;
 	/*border: solid 2px;*/ /* Fel höjd med border, finns border i bilden till labmanual, hur? Skriva över bild? */
 }
 
@@ -65,7 +64,7 @@ input[type=submit], input[type=file] {
 			border-radius: 2px;
 } */
 
-input.submitbutton { /* How Place in bottom right?? */
+input.submitbutton { 
     position: absolute;
     right: 1px;
     bottom: 1px;
@@ -73,28 +72,27 @@ input.submitbutton { /* How Place in bottom right?? */
 
 
 label {
-	text-align: right; /* Why? */
+	text-align: right;
 	clear: both;
 	float: left;
 	margin-right: 5px;	
 }
 
-#signuphead {
+#signupHead {
 	width: 140px;
 	position: relative;
-	float: center;
 	margin: 0 auto;
 	margin-top: 10px;
 }
 
-#signupform {
+#signupForm {
 	float: top;
 	/* position: relative; */ /* Problems with placing submitbutton bottom right if relative */
 	margin: 0 auto;
 	margin-top: 20px;
 }
 
-#loginform {
+#loginForm {
 	float: top;
 	/*position: relative; */
 	margin: 0 auto;
