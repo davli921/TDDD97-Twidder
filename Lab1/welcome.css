@@ -37,14 +37,27 @@ body {
 input:not([type=submit]):not([type=file]), select { /* CSS for all input except Submit, File, and for select */
 	/* Box model for form elements */
 	-webkit-box-sizing: border-box; /* Same size with box-sizing, one for chrome, ff, and other */
-		-moz-box-sizing: border-box;
-			box-sizing: border-box;
-			width: 60%; /* 70% width of container where input and select is hold */
-			position: relative;
-			float: right;
-			margin-right: 0;
-			border-radius: 2px;
-			/* https://css-tricks.com/styling-texty-inputs-only/ Style text, Not used */		
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 60%; /* 70% width of container where input and select is hold */
+	position: relative;
+	float: right;
+	margin-right: 0;
+	border-radius: 10px; /* Rounded edged */
+	border: 2px solid blue;
+	-webkit-box-shadow:
+		inset 0 0 2px  rgba(0,0,0,0.1),
+			  0 0 5px rgba(0,0,0,0.1);
+	-moz-box-shadow:
+		inset 0 0 2px  rgba(0,0,0,0.1),
+			  0 0 5px rgba(0,0,0,0.1);
+	box-shadow:
+		inset 0 0 2px  rgba(0,0,0,0.1),
+			  0 0 5px rgba(0,0,0,0.1);
+	background: rgba(255,255,255,0.5);
+	margin: 0 0 5px 0;
+			
+			
 }
 
 /*
@@ -60,22 +73,33 @@ input[type=submit], input[type=file] {
 			border-radius: 2px;
 } */
 
-input.submitbutton { /* How Place in bottom right?? */
+input.submitbutton {
     position: absolute;
-    right: 1px;
-    bottom: 1px;
+    right: 3px;
+    bottom: 3px;
+	border-radius: 5px;
+	border: 1px solid red;
+	-webkit-box-shadow:
+		inset 0 0 2px  rgba(0,0,0,0.1);
+	-moz-box-shadow:
+		inset 0 0 2px  rgba(0,0,0,0.1);
+	box-shadow:
+		inset 0 0 2px  rgba(0,0,0,0.1);
+	background: rgba(255,255,255,0.5);
 }
 
 
 label {
-	text-align: right; /* Why? */
+	text-align: right;
 	clear: both;
 	float: left;
-	margin-right: 5px;	
+	margin-right: 5px;
+	margin-left: 2px;
 }
 
 #signuphead {
 	width: 140px;
+	color: darkblue;
 	position: relative;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -85,12 +109,12 @@ label {
 	float: top;
 	/* position: relative; */ /* Problems with placing submitbutton bottom right if relative */
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: 6px;
 }
 
 #loginform {
 	float: top;
 	/*position: relative; */
 	margin: 0 auto;
-	margin-top: 10px;
+	margin-top: 6px;
 } 

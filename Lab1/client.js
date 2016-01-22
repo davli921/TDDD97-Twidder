@@ -4,13 +4,17 @@ extern class DisposableEmails {
 	public function isValid(string):Bool;
 }
 	
-displayView = function() {
+displayView = function(view) {
 	//the code required to display a view
+	displayError('');
+	document.getElementById('container').innerHTML = document.getElementById('welcomeView');
+    
 };
 window.onload = function() {
 	//code that is executed as the page is loaded
 	//you shall put your own custom code here
-	window.alert("Hello TDDD97!");
+	//window.alert("Hello TDDD97!");
+	displayView('welcomeView');
 };
 
 var signup = function() {
