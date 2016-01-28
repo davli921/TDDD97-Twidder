@@ -39,7 +39,8 @@ var signup = function() {
 		} else {
 			displayError(signupUser.message); // COMMENT OUT LATER
 
-			serverstub.signIn(data.email, data.password);
+			var tryToSignIn = serverstub.signIn(data.email, data.password);
+			displayError(tryToSignIn.message);
 
 		}
 	}
