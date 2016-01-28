@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<meta charset="utf-8"/>
 <html>
 	<head>
-		<title>Twidder</title>
+		<script type="text/javascript" src="disposable-email.js"></script>
 		
-		<body onload="window.onload()"> <!-- NOT working -->
+		<title>Twidder</title>
 		
 		<link href="client.css" type="text/css" rel="stylesheet">
 		<script src="client.js" type="text/javascript"></script>
@@ -31,7 +32,7 @@
 			</div>
 			<div id="signup">
 				<h2 id="signupHead"> Sign up here </h2>
-				<form id="signupForm" onsubmit="validateSignup";>
+				<form id="signupForm" onsubmit="validateSignup() return false;">
 					<div class="form-group">
 						<label for="firstname">First name</label>
 						<input type="text" name="firstname" id="firstname" required><br>
@@ -75,5 +76,7 @@
 		</script>
 	</head>
 	<body>
+	<div id="windowContainer"> </div>
+	<div id="errorBox"></div>
 	</body>
 </html>

@@ -1,13 +1,15 @@
-package ;
+//package TDDD97.Lab1;
+/*
 extern class DisposableEmails {
 	public function new():Void;
 	public function isValid(string):Bool;
-}
+}; */
+
 	
 displayView = function(view) {
 	//the code required to display a view
 	displayError('');
-	document.getElementById('container').innerHTML = document.getElementById('welcomeView');
+	document.getElementById('windowContainer').innerHTML = document.getElementById('welcomeView').text;
     
 };
 window.onload = function() {
@@ -36,7 +38,7 @@ var signup = function() {
 				displayError(signupUser.message)
 			} else {
 				serverstub.signIn(data.email, data.password);
-				window.alert(signupUser.message) // COMMENT OUT LATER
+				displayError(signupUser.message) // COMMENT OUT LATER
 				displayView('profileView');
 			}
 		} else {
@@ -45,12 +47,31 @@ var signup = function() {
 	}
 };
 
-var validateSignup = function() {
+var checkIfPasswordsMatch = function() {
 	var signupForm = document.forms['signupForm'];
 	var password1 = signupForm['signupPassword1']; 
 	var password2 = signupForm['signupPassword2'];
-	var email = signupForm['signupUsername'];
-	var validateMail = new DisposableEmails(); //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
+	
+	if (password1.value != password2.value) {
+		displayError('Passwords must match.');
+		return false;
+	}
+	return true;
+}
+
+function validateSignup() {
+	displayError('')
+	var signupForm = document.forms['signupForm'];
+	var password1 = signupForm['signupPassword1']; 
+	var password2 = signupForm['signupPassword2'];
+	var email = signupForm['signupUsername']; 
+	
+	
+	//var dispEmail = new DisposableEmails(); //Create an instance of isValid //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
+	
+	//result = dispEmail.isValid("dsk@mailinator.com");
+
+	
 	
 	var data = {
 		email:  signupForm['signupUsername'].value,
@@ -66,12 +87,12 @@ var validateSignup = function() {
 	
 	
 	if (password1.value.length < 6) {
-		//password1.setCustomValidity('Password must be minimum 6 characters'); // Should use instead?
 		displayError('Password is too short');
 		return false;
 		}
 	
-	if (password1.value != password2.value) {
+	
+	if (!checkIfPasswordsMatch()) {
 		displayError('Passwords must match.');
 		return false;
 	}
@@ -80,11 +101,12 @@ var validateSignup = function() {
 		displayError('Password can not be equal to email');
 		return false;
 	}
-	
-	if (validateMail.isValid(email.value)) {
+	/*
+	if (result) { //dispEmail.isValid(email.value)) {
 		displayError("A disposable email is not valid");
 		return false;
 	}
+	*/
 	
 	for (item in data) { // Check so that fields aren't empty. "Require" doesn't work in IE before IE7
 			if (item == null || item == "") {
@@ -95,3 +117,13 @@ var validateSignup = function() {
 	return true;
 };
 
+var displayError = function(error){
+    var errorBox = document.getElementById('errorBox');
+    errorBox.innerHTML = error;
+    
+    if(error == ''){
+        errorBox.style.visibility = 'hidden';
+    } else {
+        errorBox.style.visibility = 'visible';
+    }
+};
