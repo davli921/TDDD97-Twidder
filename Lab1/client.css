@@ -15,7 +15,6 @@ body {
 	/* border: solid 2px; */ /* Wrong height with border, there is a border in the picture in the manual, how? Write over picture? */
 }
 #login {
-	background-color: #FFFAFA;
 	float: right;
 	width: 246px;
 	height: 86px;
@@ -25,7 +24,6 @@ body {
 }
 
 #signup {
-	background-color: #FFFAFA;
     margin-top: 10px;
 	float: right;
 	width: 246px;
@@ -39,10 +37,9 @@ input:not([type=submit]):not([type=file]), select { /* CSS for all input except 
 	-webkit-box-sizing: border-box; /* Same size with box-sizing, one for chrome, ff, and other */
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	width: 60%; /* 70% width of container where input and select is hold */
+	width: 45%;
 	position: relative;
 	float: right;
-	margin-right: 0;
 	border-radius: 5px; /* Rounded edged */
 	border: 2px solid blue;
 	-webkit-box-shadow:

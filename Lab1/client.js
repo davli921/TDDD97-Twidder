@@ -20,31 +20,27 @@ window.onload = function() {
 };
 
 var signup = function() {
-	if (validateSignup) {
+	if (validateSignup()) {
 		var signupForm = document.forms['signupForm'];
 		var data = {
-			email:  signupForm['signupUsername'].value,
+			email: signupForm['signupUsername'].value,
 			password: signupForm['signupPassword1'].value,
 			firstname: signupForm['firstname'].value,
 			familyname: signupForm['familyname'].value,
 			gender: signupForm['gender'].value,
 			city: signupForm['city'].value,
-			country: signupForm['country'].value,
-		}
-		
-		if (serverstub.getUserDataByEmail(token,data['email'])['email'] != data['email']) { // Token??, Works?
-			var signupUser = serverstub.signUp(data);
-			if(!signupUser.success){ 
-				displayError(signupUser.message)
-			} else {
-				serverstub.signIn(data.email, data.password);
-				displayError(signupUser.message) // COMMENT OUT LATER
-				displayView('profileView');
-			}
+			country: signupForm['country'].value
+		};
+
+		var signupUser = serverstub.signUp(data);
+		if(!signupUser.success){
+			displayError(signupUser.message)
 		} else {
-			displayError('This email is already signed up')
+			serverstub.signIn(data.email, data.password);
+			displayError(signupUser.message) // COMMENT OUT LATER
+			}
 		}
-	}
+	return false;
 };
 
 var checkIfPasswordsMatch = function() {
@@ -57,10 +53,10 @@ var checkIfPasswordsMatch = function() {
 		return false;
 	}
 	return true;
-}
+};
 
 function validateSignup() {
-	displayError('')
+	displayError('');
 	var signupForm = document.forms['signupForm'];
 	var password1 = signupForm['signupPassword1']; 
 	var password2 = signupForm['signupPassword2'];
@@ -71,8 +67,6 @@ function validateSignup() {
 	
 	//result = dispEmail.isValid("dsk@mailinator.com");
 
-	
-	
 	var data = {
 		email:  signupForm['signupUsername'].value,
 		password: signupForm['signupPassword1'].value,
@@ -80,8 +74,8 @@ function validateSignup() {
 		familyname: signupForm['familyname'].value,
 		gender: signupForm['gender'].value,
 		city: signupForm['city'].value,
-		country: signupForm['country'].value,
-    }
+		country: signupForm['country'].value
+    };
 	
 	// Check email is valid, have @ etc
 	
@@ -115,7 +109,7 @@ function validateSignup() {
 			}
 	}	
 	return true;
-};
+}
 
 var displayError = function(error){
     var errorBox = document.getElementById('errorBox');
