@@ -32,14 +32,16 @@ var signup = function() {
 			country: signupForm['country'].value
 		};
 
+
 		var signupUser = serverstub.signUp(data);
 		if(!signupUser.success){
 			displayError(signupUser.message)
 		} else {
 			serverstub.signIn(data.email, data.password);
 			displayError(signupUser.message) // COMMENT OUT LATER
-			}
 		}
+	}
+
 	return false;
 };
 
@@ -63,8 +65,8 @@ function validateSignup() {
 	var email = signupForm['signupUsername']; 
 	
 	
-	//var dispEmail = new DisposableEmails(); //Create an instance of isValid //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
-	
+	var dispEmail = new DisposableEmails(); //Create an instance of isValid //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
+	console.log(dispEmail.isValid(email.value));
 	//result = dispEmail.isValid("dsk@mailinator.com");
 
 	var data = {
