@@ -1,0 +1,4 @@
+Hur stoppa en funktion?
+
+T.ex. vill visa meddelande "Sign up ok!" 
+Sen ett par sekunder senare logga in användaren.

@@ -35,10 +35,12 @@ var signup = function() {
 
 		var signupUser = serverstub.signUp(data);
 		if(!signupUser.success){
-			displayError(signupUser.message)
+			displayError(signupUser.message);
 		} else {
+			displayError(signupUser.message); // COMMENT OUT LATER
+
 			serverstub.signIn(data.email, data.password);
-			displayError(signupUser.message) // COMMENT OUT LATER
+
 		}
 	}
 
