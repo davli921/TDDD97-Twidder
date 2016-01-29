@@ -1,4 +1,19 @@
 Hur stoppa en funktion?
 
 T.ex. vill visa meddelande "Sign up ok!" 
-Sen ett par sekunder senare logga in anv�ndaren.
+Sen ett par sekunder senare logga in anv�ndaren.
+-------
+
+http://visualcaptcha.net/ Funkar bra? Funkar att g�ra med labbarna?
+
+--------
+
+Hur göra signIn efter signUp? Kalla på funktionen med argument? Eller bara signa in från signUp?
+
+--------
+
+Kan logga in flera gånger och få nya tokens....
+
+------------
+
+Hur hantera flera tokens? Flera användare...

@@ -1,22 +1,16 @@
-//package TDDD97.Lab1;
-/*
-extern class DisposableEmails {
-	public function new():Void;
-	public function isValid(string):Bool;
-}; */
-
-	
 displayView = function(view) {
 	//the code required to display a view
 	displayError('');
 	document.getElementById('windowContainer').innerHTML = document.getElementById('welcomeView').text;
     
 };
+
 window.onload = function() {
-	//code that is executed as the page is loaded
-	//you shall put your own custom code here
-	//window.alert("Hello TDDD97!");
-	displayView('welcomeView');
+	if (sessionStorage.getItem("token") == null) {
+		displayView('welcomeView');
+	} else {
+		displayView('profileView');
+	}
 };
 
 var signup = function() {
@@ -37,14 +31,31 @@ var signup = function() {
 		if(!signupUser.success){
 			displayError(signupUser.message);
 		} else {
-			displayError(signupUser.message); // COMMENT OUT LATER
-
+			displayError(signupUser.message); // How show message and wait?
 			var tryToSignIn = serverstub.signIn(data.email, data.password);
 			displayError(tryToSignIn.message);
-
+			//---------------------------------------------------------------------------
+			console.log(tryToSignIn.token);
 		}
 	}
 
+	return false;
+};
+
+var logIn = function() {
+	var loginForm = document.forms['loginForm'];
+	var email = loginForm['loginUsername'].value;
+	var pass = loginForm['loginPassword'].value;
+
+	var login = serverstub.signIn(email, pass);
+
+	if (login.success) {
+		sessionStorage.token = login.data;
+		//----------------------------------------------
+		console.log(token);
+	} else {
+		displayError(login.message);
+	}
 	return false;
 };
 
@@ -67,11 +78,6 @@ function validateSignup() {
 	var password2 = signupForm['signupPassword2'];
 	var email = signupForm['signupUsername']; 
 	
-	
-	var dispEmail = new DisposableEmails(); //Create an instance of isValid //Class with disposable email addresses //https://github.com/sureshdsk/temporary-email-address-validator-node-js
-	console.log(dispEmail.isValid(email.value));
-	//result = dispEmail.isValid("dsk@mailinator.com");
-
 	var data = {
 		email:  signupForm['signupUsername'].value,
 		password: signupForm['signupPassword1'].value,
@@ -100,12 +106,6 @@ function validateSignup() {
 		displayError('Password can not be equal to email');
 		return false;
 	}
-	/*
-	if (result) { //dispEmail.isValid(email.value)) {
-		displayError("A disposable email is not valid");
-		return false;
-	}
-	*/
 	
 	for (item in data) { // Check so that fields aren't empty. "Require" doesn't work in IE before IE7
 			if (item == null || item == "") {
