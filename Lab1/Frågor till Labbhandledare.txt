@@ -17,3 +17,11 @@ Kan logga in flera gånger och få nya tokens....
 ------------
 
 Hur hantera flera tokens? Flera användare...
+
+-----------
+
+Hur fixa så att sidan inte laddas om även om JS kraschar?
+
+------------
+
+Hur avaktivera, bakåt knappen i webbläsare.

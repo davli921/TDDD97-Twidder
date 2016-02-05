@@ -1,7 +1,6 @@
 displayView = function(view) {
-	//the code required to display a view
 	displayError('');
-	document.getElementById('windowContainer').innerHTML = document.getElementById('welcomeView').text;
+	document.getElementById('windowContainer').innerHTML = document.getElementById(view).text;
     
 };
 
@@ -36,9 +35,9 @@ var signup = function() {
 			displayError(tryToSignIn.message);
 			//---------------------------------------------------------------------------
 			console.log(tryToSignIn.token);
+			// Call window.onload ? Or not neccessary?
 		}
 	}
-
 	return false;
 };
 
