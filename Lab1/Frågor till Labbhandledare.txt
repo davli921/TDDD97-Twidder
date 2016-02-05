@@ -2,6 +2,8 @@ Hur stoppa en funktion?
 
 T.ex. vill visa meddelande "Sign up ok!" 
 Sen ett par sekunder senare logga in anv�ndaren.
+-- Går att göra, men inte nödvändigt nu. Googla
+
 -------
 
 http://visualcaptcha.net/ Funkar bra? Funkar att g�ra med labbarna?
@@ -21,6 +23,8 @@ Hur hantera flera tokens? Flera användare...
 -----------
 
 Hur fixa så att sidan inte laddas om även om JS kraschar?
+--Måste köra exception-handling.
+
 
 ------------
 

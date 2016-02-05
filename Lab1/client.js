@@ -31,11 +31,14 @@ var signup = function() {
 			displayError(signupUser.message);
 		} else {
 			displayError(signupUser.message); // How show message and wait?
-			var tryToSignIn = serverstub.signIn(data.email, data.password);
-			displayError(tryToSignIn.message);
-			//---------------------------------------------------------------------------
-			console.log(tryToSignIn.token);
-			// Call window.onload ? Or not neccessary?
+
+			//var tryToSignIn = serverstub.signIn(data.email, data.password);
+			//displayError(tryToSignIn.message);
+
+			var loginForm = document.forms['loginForm']; // Set the values of the fields in the loginForm and then use the logIn() function
+			loginForm['loginUsername'].value = signupForm['signupUsername'].value;
+			loginForm['loginPassword'].value = signupForm['signupPassword1'].value;
+			logIn()
 		}
 	}
 	return false;
@@ -50,6 +53,15 @@ var logIn = function() {
 
 	if (login.success) {
 		sessionStorage.token = login.data;
+		var homeTab = document.getElementById("Home");
+		var browseTab = document.getElementById("Browse");
+		var accountTab = document.getElementById("Account");
+
+		// NOT WORKING
+		homeTab.style.display = "block";
+		browseTab.style.display = "hidden";
+		accountTab.style.display = "none";
+
 		//----------------------------------------------
 		console.log(token);
 	} else {
